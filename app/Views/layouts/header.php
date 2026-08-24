@@ -7,10 +7,10 @@
 
 <meta
 name="viewport"
-content="width=device-width, initial-scale=1">
+content="width=device-width, initial-scale=1.0">
 
 <title><?= Config::get("shop_name") ?></title>
-
+<link rel="shortcut icon" href="<?= BASE_URL; ?>uploads/logo/logo.png" type="image/x-icon">
 <link
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 rel="stylesheet">

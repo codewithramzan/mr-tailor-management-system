@@ -105,17 +105,30 @@ $logoUrl = rtrim(BASE_URL, '/') . '/uploads/logo/' . rawurlencode($logo);
     <div class="navbar-right">
 
         <!-- Notification -->
+        <?php
+        $pendingOrderCount = 0;
+
+        try {
+            $dashboard = new Dashboard();
+            $pendingOrderCount = (int) $dashboard->pendingBookings();
+        } catch (Exception $e) {
+            $pendingOrderCount = 0;
+        }
+        ?>
+
         <a
             href="index.php?page=orders"
             class="notification"
-            title="New Orders"
+            title="Pending Orders"
         >
 
             <i class="fas fa-bell"></i>
 
-            <span class="notification-count">
-                3
-            </span>
+            <?php if ($pendingOrderCount > 0): ?>
+                <span class="notification-count">
+                    <?= $pendingOrderCount ?>
+                </span>
+            <?php endif; ?>
 
         </a>
 
